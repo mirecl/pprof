@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "pprof"
+version = "0.1.0"
+description = "Python profiling tool"
+authors = ["mirecl <grazhdankov@gmail.com>"]
+license = "BSD"
+readme = "README.md"
+keywords = ["timing", "timer", "profiling", "profiler", "perfomance"]
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Topic :: Software Development",
+]
+
+[tool.poetry.urls]
+Repository = "https://github.com/mirecl/pprof"
+Homepage = "https://github.com/mirecl/pprof"
+Documentation = "https://github.com/mirecl/pprof"
+
+[tool.poetry.dependencies]
+python = ">=3.6.2,<4.0"
+line-profiler = "^3.4.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+black = "^22.1.0"
+isort = "^5.10.1"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+force_single_line = true
+atomic = true
+include_trailing_comma = true
+lines_after_imports = 2
+lines_between_types = 1
+use_parentheses = true
+filter_files = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
