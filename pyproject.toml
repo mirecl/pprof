@@ -3,11 +3,11 @@ name = "pprof"
 version = "0.1.1"
 description = "Python profiling tool"
 authors = ["mirecl <grazhdankov@gmail.com>"]
-license = "BSD"
+license = "MIT"
 readme = "README.md"
 keywords = ["timing", "timer", "profiling", "profiler", "perfomance"]
 classifiers = [
-    "License :: OSI Approved :: BSD License",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Topic :: Software Development",
