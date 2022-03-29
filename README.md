@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://github.com/mirecl/pprof"><img src="https://github.com/mirecl/pprof/blob/master/examples/report.png?raw=true" alt="pprof"></a>
+</p>
+
+[![Downloads](https://pepy.tech/badge/pprof)](https://pepy.tech/project/pprof)
+![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)
 ## Installing
 
 ```sh
