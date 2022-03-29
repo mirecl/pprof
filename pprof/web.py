@@ -33,4 +33,4 @@ class WebRender:
 
     def get_html(self) -> str:
         content = self._get_content()
-        return f"<html><pre>{content}</pre></html>"
+        return f'<html><head><meta charset="UTF-8"/></head><pre>{content}</pre></html>'
