@@ -10,7 +10,17 @@ on:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.6','3.7','3.8','3.9']
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+    
+    runs-on: ${{ matrix.platform }}
+    
+    defaults:
+      run:
+        shell: bash
+    
     steps:
       #----------------------------------------------
       #  check-out repo and set-up python
@@ -21,7 +31,7 @@ jobs:
         id: setup-python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: ${{ matrix.python }}
       #----------------------------------------------
       #  configure poetry 
       #----------------------------------------------
@@ -41,12 +51,12 @@ jobs:
       #----------------------------------------------
       - name: flake8
         run: |
-          source .venv/bin/activate
+          source $VENV
           flake8 pprof/
       #----------------------------------------------
       # run tests
       #----------------------------------------------
       - name: pytest
         run: |
-          source .venv/bin/activate
+          source $VENV
           pytest
