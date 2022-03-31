@@ -33,7 +33,7 @@ pytest-mock = "^3"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = ["-v", "--cov"]
+addopts = ["-v", "--cov", "--cov-report=xml", "--cov-report=term"]
 
 [tool.coverage.run]
 branch = true

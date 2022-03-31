@@ -60,3 +60,13 @@ jobs:
         run: |
           source $VENV
           pytest
+      #----------------------------------------------
+      # upload coverage
+      #----------------------------------------------
+      - name: coverage     
+        uses: codecov/codecov-action@v1
+        if: matrix.python == '3.6' && matrix.platform == 'ubuntu-latest'
+        with:
+          token: ${{ secrets.CI_CODECOV }}  # Only required for private repositories
+          file: ./coverage.xml
+          fail_ci_if_error: true
