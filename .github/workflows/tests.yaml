@@ -47,7 +47,14 @@ jobs:
       - name: Install dependencies
         run: poetry install --no-interaction
       #----------------------------------------------
-      # Run check style 
+      # Run Black style 
+      #----------------------------------------------
+      - name: Black
+        run: |
+          source $VENV
+          black pprof --check
+      #----------------------------------------------
+      # Run PEP style 
       #----------------------------------------------
       - name: Flake8
         run: |
