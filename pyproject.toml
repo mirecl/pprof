@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pprof"
-version = "0.1.1"
+version = "0.1.2"
 description = "Python profiling tool"
 authors = ["mirecl <grazhdankov@gmail.com>"]
 license = "MIT"
@@ -10,6 +10,10 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
     "Topic :: Software Development",
 ]
 
@@ -20,7 +24,7 @@ Documentation = "https://github.com/mirecl/pprof"
 
 [tool.poetry.dependencies]
 python = ">=3.6.2,<4.0"
-line-profiler = "^3.4.0"
+line-profiler = "^3.5.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"

@@ -8,6 +8,7 @@
 [![GitHub](https://img.shields.io/github/license/mirecl/pprof)](https://github.com/mirecl/pprof/blob/master/LICENSE)
 [![Tests](https://github.com/mirecl/pprof/actions/workflows/tests.yaml/badge.svg)](https://github.com/mirecl/pprof/actions/workflows/tests.yaml)
 [![codecov](https://codecov.io/gh/mirecl/pprof/branch/master/graph/badge.svg?token=UFDA1JG40A)](https://codecov.io/gh/mirecl/pprof)
+[![python version](https://img.shields.io/pypi/pyversions/pprof.svg)](https://pypi.org/project/pprof/)
 
 ## Installing
 
