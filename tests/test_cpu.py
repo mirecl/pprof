@@ -1,3 +1,4 @@
+import atexit
 import os.path
 import webbrowser
 
@@ -29,6 +30,9 @@ async def test_run(mocker):
 
     report = profiler.get_report()
     assert report == empty_report
+
+    mocker.patch.object(atexit, "register", lambda x: x)
+    profiler.auto_report()
 
     mocker.patch.object(webbrowser, "open", lambda x: x)
     profiler.open_report()
