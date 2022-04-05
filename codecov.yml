@@ -1,11 +1,11 @@
 coverage:
   round: up
   range: 80..100
-  project:
-    default: 
-      target: 80%
-      threshold: 5%
   status:
+    project:
+      default: 
+        target: 80%
+        threshold: 5%
     patch: off
 
 comment:                  
