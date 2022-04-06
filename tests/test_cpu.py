@@ -38,13 +38,13 @@ def test_cpu(mocker):
 
 @pytest.mark.run(order=1)
 @pytest.mark.parametrize(
-    "test_input",
+    "test_input,expected",
     [
-        [(18, 1, 0), (19, 1, 300_000)],
-        [(18, 1, 0), (19, 1, 0)],
-        [(18, 1, 1_000_001), (19, 1, 0)],
+        ([(18, 1, 0), (19, 1, 300_000)], "300.0ms"),
+        ([(18, 1, 0), (19, 1, 0)], "."),
+        ([(18, 1, 1_000_001), (19, 1, 0)], "1.00s"),
     ],
 )
-def test_show_html(test_input):
+def test_show_html(test_input, expected):
     report = show_html({(__file__, 16, "f"): test_input})
-    assert report != empty_report
+    assert report.__contains__(expected) is True

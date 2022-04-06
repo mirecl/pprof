@@ -6,7 +6,7 @@
 [![Downloads](https://pepy.tech/badge/pprof)](https://pepy.tech/project/pprof)
 [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![PyPI - License](https://img.shields.io/pypi/l/pprof)](https://github.com/mirecl/pprof/blob/master/LICENSE)
-[![Tests](https://github.com/mirecl/pprof/actions/workflows/tests.yaml/badge.svg)](https://github.com/mirecl/pprof/actions/workflows/tests.yaml)
+[![Tests](https://github.com/mirecl/pprof/actions/workflows/test.yaml/badge.svg)](https://github.com/mirecl/pprof/actions/workflows/test.yaml)
 [![codecov](https://codecov.io/gh/mirecl/pprof/branch/master/graph/badge.svg?token=UFDA1JG40A)](https://codecov.io/gh/mirecl/pprof)
 [![python version](https://img.shields.io/pypi/pyversions/pprof.svg)](https://pypi.org/project/pprof/)
 

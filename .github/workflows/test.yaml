@@ -1,0 +1,143 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  Check:
+    name: Check Style Code
+    runs-on: ubuntu-latest
+    steps:
+      #----------------------------------------------
+      #  Check-out repo
+      #----------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v2
+      #----------------------------------------------
+      #  Install python
+      #----------------------------------------------
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+     #----------------------------------------------
+      #  Configure poetry 
+      #----------------------------------------------
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      #----------------------------------------------
+      # Install dependencies 
+      #----------------------------------------------
+      - name: Install dependencies
+        run: poetry install --no-interaction
+      #----------------------------------------------
+      # Run Black style 
+      #----------------------------------------------
+      - name: Black
+        run: |
+          source $VENV
+          black pprof --check
+      #----------------------------------------------
+      # Run PEP style 
+      #----------------------------------------------
+      - name: Flake8
+        run: |
+          source $VENV
+          flake8 pprof/
+
+  Test:
+    name: Test Code
+    needs: [Check]
+    strategy:
+      matrix:
+        python: ['3.6','3.7','3.8','3.9']
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+    
+    runs-on: ${{ matrix.platform }}
+    
+    defaults:
+      run:
+        shell: bash
+    
+    steps:
+      #----------------------------------------------
+      #  Check-out repo
+      #----------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v2
+      #----------------------------------------------
+      #  Install python
+      #----------------------------------------------
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+      #----------------------------------------------
+      #  Configure poetry 
+      #----------------------------------------------
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      #----------------------------------------------
+      # Install dependencies 
+      #----------------------------------------------
+      - name: Install dependencies
+        run: poetry install --no-interaction
+      #----------------------------------------------
+      # Run tests
+      #----------------------------------------------
+      - name: Pytest
+        run: |
+          source $VENV
+          pytest
+      #----------------------------------------------
+      # Upload coverage to codecov
+      #----------------------------------------------
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v2
+        if: matrix.python == '3.6' && matrix.platform == 'ubuntu-latest'
+        with:
+          name: coverage
+          path: "*coverage.*"
+
+  Upload:
+    name: Uploading to Codecov
+    needs: [Test]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      #----------------------------------------------
+      #  Check-out repo
+      #----------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v2
+      #----------------------------------------------
+      # Download coverage artifact
+      #----------------------------------------------
+      - name: Download coverage 
+        uses: actions/download-artifact@v2
+        with:
+          name: coverage
+      #----------------------------------------------
+      # Upload coverage to codecov
+      #----------------------------------------------
+      - name: Upload coverage     
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CI_CODECOV }}  
+          file: ./coverage.xml
+          fail_ci_if_error: true
