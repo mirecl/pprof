@@ -1,4 +1,4 @@
-name: Releases
+name: CD
 
 on:
   workflow_dispatch:
