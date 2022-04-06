@@ -1,0 +1,166 @@
+name: Releases
+
+on:
+  workflow_dispatch:
+    inputs:
+      repository:
+        type: choice
+        description: Python repository
+        options: 
+        - test
+        - prod
+    
+jobs:
+  build:  
+    name: Build
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        shell: bash
+    
+    steps:
+      #----------------------------------------------
+      #  Check-out repo
+      #----------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v2
+      #----------------------------------------------
+      #  Install python
+      #----------------------------------------------
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      #----------------------------------------------
+      #  Configure poetry 
+      #----------------------------------------------
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      #----------------------------------------------
+      # Install dependencies 
+      #----------------------------------------------
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-dev
+      #----------------------------------------------
+      # Build 
+      #----------------------------------------------
+      - name: Build
+        run: poetry build
+      #----------------------------------------------
+      # Upload wheels artifact 
+      #----------------------------------------------
+      - name: Upload wheels artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: pprof
+          path: dist
+
+  publish_repo:
+    name: Uploading to PyPi
+    if: github.event.inputs.repository == 'prod'
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      #----------------------------------------------
+      #  Check-out repo
+      #----------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v3
+      #----------------------------------------------
+      # Download wheels artifact 
+      #----------------------------------------------
+      - name: Download wheels artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: pprof
+          path: dist
+      #----------------------------------------------
+      #  Install python
+      #----------------------------------------------
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+     #----------------------------------------------
+      #  Install poetry 
+      #----------------------------------------------
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      #----------------------------------------------
+      #  Configure poetry 
+      #----------------------------------------------
+      - name: Configure Poetry
+        env:
+          PYPI_TOKEN: ${{ secrets.CD_PYPI }}
+        run: |
+          poetry config pypi-token.pypi $PYPI_TOKEN
+      #----------------------------------------------
+      #  Publish
+      #----------------------------------------------
+      - name: Publish
+        run: |
+          poetry publish
+
+  publish_test_repo:
+    name: Uploading to Test PyPi
+    if: github.event.inputs.repository == 'test'
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      #----------------------------------------------
+      #  Check-out repo
+      #----------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v3
+      #----------------------------------------------
+      # Download wheels artifact 
+      #----------------------------------------------
+      - name: Download wheels artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: pprof
+          path: dist
+      #----------------------------------------------
+      #  Install python
+      #----------------------------------------------
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      #----------------------------------------------
+      #  Install poetry 
+      #----------------------------------------------
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      #----------------------------------------------
+      #  Configure poetry 
+      #----------------------------------------------
+      - name: Configure Poetry
+        env:
+          PYPI_TOKEN: ${{ secrets.CD_TEST_PYPI }}
+        run: |
+          poetry config repositories.testpypi https://test.pypi.org/legacy/
+          poetry config pypi-token.testpypi $PYPI_TOKEN
+      #----------------------------------------------
+      #  Publish
+      #----------------------------------------------
+      - name: Publish
+        run: |
+          poetry publish -r testpypi
+    
