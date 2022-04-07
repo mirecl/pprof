@@ -21,8 +21,7 @@
     <a href="https://codecov.io/gh/mirecl/pprof" target="_blank">
         <img src="https://codecov.io/gh/mirecl/pprof/branch/master/graph/badge.svg?token=UFDA1JG40A" alt="Test">
     </a>
-</p>
-<p align="center">
+    <br>
     <a href="https://pypi.org/project/pprof/" target="_blank">
         <img src="https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9-blue?logoColor=white&logo=python" alt="PyPi">
     </a>
@@ -30,6 +29,7 @@
         <img src="https://img.shields.io/badge/OS-win%20%7C%20mac%20%7C%20linux-green" alt="OS">
     </a>
 </p>
+
 
 ---
 
