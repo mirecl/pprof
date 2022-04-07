@@ -1,4 +1,5 @@
 import atexit
+import inspect
 import os.path
 import webbrowser
 
@@ -19,7 +20,7 @@ def f(a, b):
     return res
 
 
-@pytest.mark.run(order=2)
+@pytest.mark.run(order=-1)
 def test_cpu(mocker):
     report = cpu.get_report()
     assert report == empty_report
@@ -36,7 +37,7 @@ def test_cpu(mocker):
     assert wrapper_f(1, 1) == 2
 
 
-@pytest.mark.run(order=1)
+@pytest.mark.run(order=0)
 @pytest.mark.parametrize(
     "test_input,expected",
     [
@@ -45,6 +46,9 @@ def test_cpu(mocker):
         ([(18, 1, 1_000_001), (19, 1, 0)], "1.00s"),
     ],
 )
-def test_show_html(test_input, expected):
+def test_show_html(mocker, test_input, expected):
+    source = inspect.getsource(f).split("\n")
+    mocker.patch.object(inspect, "getblock", lambda x: source)
+
     report = show_html({(__file__, 16, "f"): test_input})
     assert report.__contains__(expected) is True

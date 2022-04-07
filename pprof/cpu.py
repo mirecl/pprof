@@ -73,7 +73,7 @@ def show_func(filename, start_lineno, func_name, timings) -> str:
     total_time = 0.0
     linenos = []
 
-    for lineno, nhits, time in timings:
+    for lineno, _, time in timings:
         total_time += time
         linenos.append(lineno)
 
@@ -88,7 +88,7 @@ def show_func(filename, start_lineno, func_name, timings) -> str:
     sublines = inspect.getblock(all_lines[start_lineno - 1 :])
 
     # style for comment in source code.
-    for toktype, tok, start, end, line in tokenize.generate_tokens(StringIO("".join(sublines)).readline):
+    for toktype, tok, start, _, _ in tokenize.generate_tokens(StringIO("".join(sublines)).readline):
         if toktype == tokenize.COMMENT:
             source_line = start[0] - 1
             sublines[source_line] = sublines[source_line].replace(tok, f'<a style="color:#b9b9b9">{tok}</a>')
