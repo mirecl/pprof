@@ -2,13 +2,38 @@
   <a href="https://github.com/mirecl/pprof"><img src="https://github.com/mirecl/pprof/blob/master/examples/report.png?raw=true" alt="pprof"></a>
 </p>
 
-[![PyPI](https://img.shields.io/pypi/v/pprof)](https://pypi.org/project/pprof/)
-[![Downloads](https://pepy.tech/badge/pprof)](https://pepy.tech/project/pprof)
-[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![PyPI - License](https://img.shields.io/pypi/l/pprof)](https://github.com/mirecl/pprof/blob/master/LICENSE)
-[![Tests](https://github.com/mirecl/pprof/actions/workflows/CI.yaml/badge.svg)](https://github.com/mirecl/pprof/actions/workflows/CI.yaml)
-[![codecov](https://codecov.io/gh/mirecl/pprof/branch/master/graph/badge.svg?token=UFDA1JG40A)](https://codecov.io/gh/mirecl/pprof)
-[![python version](https://img.shields.io/pypi/pyversions/pprof.svg)](https://pypi.org/project/pprof/)
+<p align="center">
+    <a href="https://pypi.org/project/pprof" target="_blank">
+        <img src="https://img.shields.io/pypi/v/pprof" alt="PyPi">
+    </a>
+    <a href="https://pepy.tech/project/pprof" target="_blank">
+        <img src="https://pepy.tech/badge/pprof" alt="PePy">
+    </a>
+    <a href="https://github.com/psf/black" target="_blank">
+        <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Black">
+    </a>
+    <a href="https://github.com/PyCQA/flake8" target="_blank">
+        <img src="https://img.shields.io/badge/check%20style-flake8-black" alt="Flake8">
+    </a>
+    <a href="https://github.com/mirecl/pprof/blob/master/LICENSE" target="_blank">
+        <img src="https://img.shields.io/pypi/l/pprof" alt="License">
+    </a>
+    <a href="https://github.com/mirecl/pprof/actions/workflows/test.yaml" target="_blank">
+        <img src="https://github.com/mirecl/pprof/actions/workflows/test.yaml/badge.svg" alt="Test">
+    </a>
+    <a href="https://codecov.io/gh/mirecl/pprof" target="_blank">
+        <img src="https://codecov.io/gh/mirecl/pprof/branch/master/graph/badge.svg?token=UFDA1JG40A" alt="Test">
+    </a>
+</p>
+<p align="center">
+    <a href="https://pypi.org/project/pprof/" target="_blank">
+        <img src="https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9-blue?logoColor=white&logo=python" alt="PyPi">
+    </a>
+    <a href="https://github.com/mirecl/pprof" target="_blank">
+        <img src="https://img.shields.io/badge/OS-win%20%7C%20mac%20%7C%20linux-green" alt="OS">
+    </a>
+</p>
+---
 
 ## Installing
 
