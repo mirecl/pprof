@@ -12,9 +12,6 @@
     <a href="https://github.com/psf/black" target="_blank">
         <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Black">
     </a>
-    <a href="https://github.com/PyCQA/flake8" target="_blank">
-        <img src="https://img.shields.io/badge/check%20style-flake8-black" alt="Flake8">
-    </a>
     <a href="https://github.com/mirecl/pprof/blob/master/LICENSE" target="_blank">
         <img src="https://img.shields.io/pypi/l/pprof" alt="License">
     </a>
@@ -33,6 +30,7 @@
         <img src="https://img.shields.io/badge/OS-win%20%7C%20mac%20%7C%20linux-green" alt="OS">
     </a>
 </p>
+
 ---
 
 ## Installing
