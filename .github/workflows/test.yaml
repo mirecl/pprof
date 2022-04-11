@@ -129,7 +129,7 @@ jobs:
       # Download coverage artifact
       #----------------------------------------------
       - name: Download coverage 
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: coverage
       #----------------------------------------------
