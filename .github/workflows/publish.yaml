@@ -52,7 +52,7 @@ jobs:
       # Upload wheels artifact 
       #----------------------------------------------
       - name: Upload wheels artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: pprof
           path: dist
