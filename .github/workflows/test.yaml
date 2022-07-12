@@ -20,7 +20,7 @@ jobs:
       #----------------------------------------------
       - name: Set up python
         id: setup-python
-        uses: actions/setup-python@v4.0.0
+        uses: actions/setup-python@v4.1.0
         with:
           python-version: 3.6
      #----------------------------------------------
@@ -77,7 +77,7 @@ jobs:
       #----------------------------------------------
       - name: Set up python
         id: setup-python
-        uses: actions/setup-python@v4.0.0
+        uses: actions/setup-python@v4.1.0
         with:
           python-version: ${{ matrix.python }}
       #----------------------------------------------
