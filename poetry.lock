@@ -191,17 +191,21 @@ plugins = ["setuptools"]
 
 [[package]]
 name = "line-profiler"
-version = "3.5.1"
-description = "Line-by-line profiler."
+version = "4.0.1"
+description = "Line-by-line profiler"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 
 [package.extras]
-all = ["cython", "scikit-build", "cmake", "ninja", "pytest (>=4.6.11)", "pytest-cov (>=2.10.1)", "coverage[toml] (>=5.3)", "ubelt (>=1.0.1)", "IPython (>=0.13,<7.17.0)", "IPython (>=0.13)"]
-build = ["cython", "scikit-build", "cmake", "ninja"]
-ipython = ["IPython (>=0.13,<7.17.0)", "IPython (>=0.13)"]
-tests = ["pytest (>=4.6.11)", "pytest-cov (>=2.10.1)", "coverage[toml] (>=5.3)", "ubelt (>=1.0.1)", "IPython (>=0.13,<7.17.0)", "IPython (>=0.13)"]
+all = ["pytest", "pytest-cov", "coverage", "ubelt", "cython", "scikit-build", "cmake", "ninja", "cibuildwheel", "cibuildwheel", "cibuildwheel", "cibuildwheel", "cibuildwheel", "cibuildwheel", "ipython", "ipython"]
+all-strict = ["pytest (==4.6.11)", "pytest-cov (==2.10.1)", "coverage[toml] (==5.3)", "ubelt (==1.0.1)", "Cython (==3.0.0a11)", "scikit-build (==0.11.1)", "cmake (==3.21.2)", "ninja (==1.10.2)", "cibuildwheel (==2.11.2)", "cibuildwheel (==2.11.2)", "cibuildwheel (==2.8.1)", "cibuildwheel (==2.11.2)", "cibuildwheel (==2.11.2)", "cibuildwheel (==2.11.2)", "IPython (==0.13)", "IPython (==0.13)"]
+build = ["cython", "scikit-build", "cmake", "ninja", "cibuildwheel", "cibuildwheel", "cibuildwheel", "cibuildwheel", "cibuildwheel", "cibuildwheel"]
+build-strict = ["Cython (==3.0.0a11)", "scikit-build (==0.11.1)", "cmake (==3.21.2)", "ninja (==1.10.2)", "cibuildwheel (==2.11.2)", "cibuildwheel (==2.11.2)", "cibuildwheel (==2.8.1)", "cibuildwheel (==2.11.2)", "cibuildwheel (==2.11.2)", "cibuildwheel (==2.11.2)"]
+ipython-strict = ["IPython (==0.13)", "IPython (==0.13)"]
+ipython = ["ipython", "ipython"]
+tests = ["pytest", "pytest-cov", "coverage", "ubelt", "ipython", "ipython"]
+tests-strict = ["pytest (==4.6.11)", "pytest-cov (==2.10.1)", "coverage[toml] (==5.3)", "ubelt (==1.0.1)", "IPython (==0.13)", "IPython (==0.13)"]
 
 [[package]]
 name = "mccabe"
@@ -401,7 +405,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.6.2,<4.0"
-content-hash = "6cef72ce5d51bd2b4103adda85012b5a688ef0dfbd19b21f68199bd10061fc3a"
+content-hash = "2c4a80109cd98edf598378641c885338b6a820bec4214e98a74e494fda0ad511"
 
 [metadata.files]
 atomicwrites = [

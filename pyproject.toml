@@ -24,7 +24,7 @@ Documentation = "https://github.com/mirecl/pprof"
 
 [tool.poetry.dependencies]
 python = ">=3.6.2,<4.0"
-line-profiler = "^3.5.1"
+line-profiler = "^4.0.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^5.0.4"
