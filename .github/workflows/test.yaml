@@ -116,7 +116,7 @@ jobs:
   Upload:
     name: Uploading to Codecov
     needs: [Test]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         shell: bash
