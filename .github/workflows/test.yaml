@@ -22,7 +22,7 @@ jobs:
         id: setup-python
         uses: actions/setup-python@v4.3.0
         with:
-          python-version: 3.6
+          python-version: 3.6.15
      #----------------------------------------------
       #  Configure poetry 
       #----------------------------------------------
