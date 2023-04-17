@@ -22,7 +22,7 @@ jobs:
         id: setup-python
         uses: actions/setup-python@v4.5.0
         with:
-          python-version: 3.6.15
+          python-version: 3.7
      #----------------------------------------------
       #  Configure poetry 
       #----------------------------------------------
@@ -58,7 +58,7 @@ jobs:
     needs: [Check]
     strategy:
       matrix:
-        python: ['3.6','3.7','3.8','3.9']
+        python: ['3.7','3.8','3.9']
         platform: [ubuntu-20.04, macos-latest, windows-latest]
     
     runs-on: ${{ matrix.platform }}
@@ -108,7 +108,7 @@ jobs:
       #----------------------------------------------
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v3
-        if: matrix.python == '3.6' && matrix.platform == 'ubuntu-20.04'
+        if: matrix.python == '3.7' && matrix.platform == 'ubuntu-20.04'
         with:
           name: coverage
           path: "*coverage.*"
