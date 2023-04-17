@@ -23,7 +23,7 @@
     </a>
     <br>
     <a href="https://pypi.org/project/pprof/" target="_blank">
-        <img src="https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9-blue?logoColor=white&logo=python" alt="PyPi">
+        <img src="https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9-blue?logoColor=white&logo=python" alt="PyPi">
     </a>
     <a href="https://github.com/mirecl/pprof" target="_blank">
         <img src="https://img.shields.io/badge/OS-win%20%7C%20mac%20%7C%20linux-green" alt="OS">
