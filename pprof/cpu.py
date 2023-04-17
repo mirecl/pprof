@@ -62,7 +62,7 @@ def show_html(stats) -> str:
 
 def show_func(filename, start_lineno, func_name, timings) -> str:
     """
-    Generate html for funcrion.
+    Generate html for function.
     """
     stream = StringIO()
 
