@@ -20,7 +20,7 @@ jobs:
       #  Check-out repo
       #----------------------------------------------
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       #----------------------------------------------
       #  Install python
       #----------------------------------------------
@@ -68,7 +68,7 @@ jobs:
       #  Check-out repo
       #----------------------------------------------
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       #----------------------------------------------
       # Download wheels artifact 
       #----------------------------------------------
@@ -120,7 +120,7 @@ jobs:
       #  Check-out repo
       #----------------------------------------------
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       #----------------------------------------------
       # Download wheels artifact 
       #----------------------------------------------
