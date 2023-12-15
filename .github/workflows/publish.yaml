@@ -73,7 +73,7 @@ jobs:
       # Download wheels artifact 
       #----------------------------------------------
       - name: Download wheels artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: pprof
           path: dist
@@ -125,7 +125,7 @@ jobs:
       # Download wheels artifact 
       #----------------------------------------------
       - name: Download wheels artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: pprof
           path: dist
