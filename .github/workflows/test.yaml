@@ -138,7 +138,7 @@ jobs:
       # Upload coverage to codecov
       #----------------------------------------------
       - name: Upload coverage     
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CI_CODECOV }}  
           file: ./coverage.xml
