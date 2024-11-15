@@ -33,7 +33,7 @@ jobs:
       #  Configure poetry 
       #----------------------------------------------
       - name: Install Poetry
-        uses: snok/install-poetry@v1.3.4
+        uses: snok/install-poetry@v1.4.1
         with:
           version: 1.1.14
           virtualenvs-create: true
@@ -89,7 +89,7 @@ jobs:
       #  Install poetry 
       #----------------------------------------------
       - name: Install Poetry
-        uses: snok/install-poetry@v1.3.4
+        uses: snok/install-poetry@v1.4.1
         with:
           version: 1.1.14
           virtualenvs-create: true
@@ -141,7 +141,7 @@ jobs:
       #  Install poetry 
       #----------------------------------------------
       - name: Install Poetry
-        uses: snok/install-poetry@v1.3.4
+        uses: snok/install-poetry@v1.4.1
         with:
           virtualenvs-create: true
           virtualenvs-in-project: true
