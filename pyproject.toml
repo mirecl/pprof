@@ -28,7 +28,7 @@ line-profiler = "^4.0.3"
 [tool.poetry.dev-dependencies]
 flake8 = "^5.0.4"
 black = "^22.8.0"
-isort = "^5.10.1"
+isort = "^5.11.5"
 pytest = "7.0.1"
 pytest-mock = "^3"
 pytest-ordering = "^0.6"
